@@ -1,0 +1,42 @@
+Relatório do Projeto CRUD de Produtos
+
+Autor: Lucas Girelli Bezerra
+Sala: CC4M
+
+1. Modelo de Dados Escolhido
+
+O projeto foi desenvolvido com base no modelo de dados relacional, utilizando tabelas e chaves primárias para garantir integridade e consistência. A estrutura geral do banco de dados permite gerenciar produtos com atributos como ID, Nome, Preço e Categoria. Além disso, as referências entre as tabelas foram cuidadosamente planejadas para assegurar eficiência em consultas e manutenções futuras.
+
+Os relacionamentos entre as entidades são representados através de tabelas intermediárias ou diretas, dependendo da necessidade de normalização. Por exemplo, o relacionamento "muitos-para-muitos" entre autores e livros foi representado pela tabela Livros_has_Autor, permitindo uma conexão clara e flexível entre esses registros.
+
+2. Decisões de Design
+
+A arquitetura geral do sistema seguiu princípios de modularidade e reutilização. No lado do código, foram utilizados padrões de design para garantir escalabilidade e facilidade de manutenção:
+
+Uso do Singleton:
+O padrão Singleton foi implementado para gerenciar a instância de acesso ao banco de dados. Ele garante que apenas uma instância do objeto de conexão seja criada durante o tempo de execução do programa. Isso é fundamental para reduzir o consumo de recursos do sistema e evitar problemas de concorrência, especialmente em operações que demandam acesso simultâneo ao banco.
+
+O Singleton foi escolhido por sua capacidade de centralizar o controle da conexão, evitando múltiplas instâncias desnecessárias que poderiam resultar em falhas de comunicação ou sobrecarga de memória.
+
+Separação de Camadas:
+O projeto foi estruturado de forma a isolar a interface gráfica, a lógica de negócios e as operações de banco de dados. Essa separação segue o princípio de responsabilidade única, onde cada camada tem sua função claramente definida, facilitando testes, depuração e futuras expansões.
+
+Persistência de Dados:
+A integração com o banco de dados foi projetada para ser robusta e eficiente, utilizando boas práticas como validação de entrada de dados e manipulação de exceções. Isso assegura que o sistema possa lidar adequadamente com erros, garantindo a integridade do banco.
+
+3. Justificativas de Escolha do Singleton
+
+O Singleton foi utilizado para resolver problemas comuns em projetos de acesso a banco de dados, como:
+
+Consistência de Conexões:
+Uma única instância de conexão elimina conflitos e inconsistências que podem surgir com múltiplas conexões abertas simultaneamente.
+
+Eficiência em Recursos:
+O uso de um único objeto compartilhado reduz o overhead de criação e destruição repetitiva de conexões, otimizando o desempenho.
+
+Centralização do Controle:
+Com o Singleton, a lógica de acesso ao banco fica centralizada, tornando o código mais legível e menos propenso a erros.
+
+4. Conclusão
+
+O projeto demonstra uma aplicação prática dos conceitos de desenvolvimento de software, integrando um modelo relacional de dados com boas práticas de programação e padrões de design. As decisões tomadas, como o uso do Singleton, refletem um compromisso com a qualidade do código e a eficiência operacional. O resultado é um sistema funcional e escalável, preparado para atender às necessidades propostas.
